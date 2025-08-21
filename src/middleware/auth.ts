@@ -19,7 +19,7 @@ export const authenticateToken = (req: AuthenticatedRequest, res: Response, next
       email: decoded.email,
       role: decoded.role,
     }
-    next()
+    return next()
   } catch (error) {
     return ResponseUtil.error(res, "Invalid or expired token", undefined, 403)
   }
@@ -35,6 +35,6 @@ export const authorizeRoles = (...roles: string[]) => {
       return ResponseUtil.error(res, "Não possui Permissão", undefined, 403)
     }
 
-    next()
+    return next()
   }
 }

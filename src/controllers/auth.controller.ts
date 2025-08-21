@@ -12,7 +12,7 @@ export class AuthController {
 
       return ResponseUtil.success(res, "Usuário registrado com sucesso", result, 201)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -23,7 +23,7 @@ export class AuthController {
 
       return ResponseUtil.success(res, "Login realizado com sucesso", result)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -36,7 +36,7 @@ export class AuthController {
       const user = await AuthService.getUserById(req.user.id)
       return ResponseUtil.success(res, "Perfil do usuário", user)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -54,7 +54,7 @@ export class AuthController {
 
       return ResponseUtil.success(res, "Token renovado com sucesso", { token })
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 }

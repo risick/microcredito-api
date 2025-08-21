@@ -51,7 +51,7 @@ export class UserController {
 
       return ResponseUtil.paginated(res, "Lista de usuários", users, page, limit, total)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -87,7 +87,7 @@ export class UserController {
 
       return ResponseUtil.success(res, "Dados do usuário", user)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -136,7 +136,7 @@ export class UserController {
 
       return ResponseUtil.success(res, "Usuário atualizado com sucesso", updatedUser)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -161,7 +161,7 @@ export class UserController {
 
       return ResponseUtil.success(res, "Usuário desativado com sucesso")
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -194,7 +194,7 @@ export class UserController {
 
       return ResponseUtil.success(res, "Estatísticas de usuários", formattedStats)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 }

@@ -356,7 +356,12 @@ export class BorrowerService {
     let score = 500 // Score base
 
     // Fator renda (0-300 pontos)
-    const income = typeof data.income === "number" ? data.income : Number.parseFloat(data.income.toString())
+    const income =
+      typeof data.income === "number"
+        ? data.income
+        : typeof data.income === "string"
+        ? Number.parseFloat(data.income)
+        : 0
     if (income >= 10000) score += 300
     else if (income >= 5000) score += 200
     else if (income >= 2000) score += 100

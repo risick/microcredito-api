@@ -20,7 +20,7 @@ export class BorrowerController {
 
       return ResponseUtil.success(res, "Perfil de cliente criado com sucesso", borrower, 201)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -33,7 +33,7 @@ export class BorrowerController {
 
       return ResponseUtil.paginated(res, "Lista de clientes", borrowers, pagination.page, pagination.limit, total)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -44,7 +44,7 @@ export class BorrowerController {
 
       return ResponseUtil.success(res, "Dados do cliente", borrower)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -58,7 +58,7 @@ export class BorrowerController {
 
       return ResponseUtil.success(res, "Meu perfil de cliente", borrower)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -71,7 +71,7 @@ export class BorrowerController {
 
       return ResponseUtil.success(res, "Cliente atualizado com sucesso", borrower)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -90,7 +90,7 @@ export class BorrowerController {
 
       return ResponseUtil.success(res, "Perfil atualizado com sucesso", borrower)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -102,7 +102,7 @@ export class BorrowerController {
 
       return ResponseUtil.success(res, "Cliente desativado com sucesso")
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -112,7 +112,7 @@ export class BorrowerController {
 
       return ResponseUtil.success(res, "Estatísticas de clientes", stats)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 
@@ -126,12 +126,12 @@ export class BorrowerController {
       // Recalcular score
       const updatedBorrower = await BorrowerService.updateBorrower(id, {
         creditScore: undefined, // Isso forçará o recálculo
-        income: borrower.income,
+        income: borrower.income.toNumber(),
       })
 
       return ResponseUtil.success(res, "Score de crédito recalculado", updatedBorrower)
     } catch (error) {
-      next(error)
+      return next(error)
     }
   }
 }
