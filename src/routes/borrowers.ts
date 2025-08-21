@@ -126,7 +126,7 @@ router.post("/", authenticateToken, BorrowerController.createBorrower)
  *       403:
  *         description: Forbidden
  */
-router.get("/", authenticateToken, authorizeRoles("ADMIN", "LOAN_OFFICER"), BorrowerController.getBorrowers)
+router.get("/", authenticateToken, authorizeRoles("ADMIN", "LOAN_OFFICER", 'MANAGER'), BorrowerController.getBorrowers)
 
 /**
  * @swagger
@@ -194,7 +194,7 @@ router.put("/me", authenticateToken, BorrowerController.updateMyProfile)
  *       403:
  *         description: Forbidden
  */
-router.get("/stats", authenticateToken, authorizeRoles("ADMIN", "LOAN_OFFICER"), BorrowerController.getBorrowerStats)
+router.get("/stats", authenticateToken, authorizeRoles("ADMIN", "LOAN_OFFICER", "MANAGER"), BorrowerController.getBorrowerStats)
 
 /**
  * @swagger
@@ -216,7 +216,7 @@ router.get("/stats", authenticateToken, authorizeRoles("ADMIN", "LOAN_OFFICER"),
  *       404:
  *         description: Borrower not found
  */
-router.get("/:id", authenticateToken, authorizeRoles("ADMIN", "LOAN_OFFICER"), BorrowerController.getBorrowerById)
+router.get("/:id", authenticateToken, authorizeRoles("ADMIN", "LOAN_OFFICER", "MANAGER"), BorrowerController.getBorrowerById)
 
 /**
  * @swagger
@@ -260,7 +260,7 @@ router.get("/:id", authenticateToken, authorizeRoles("ADMIN", "LOAN_OFFICER"), B
  *       404:
  *         description: Borrower not found
  */
-router.put("/:id", authenticateToken, authorizeRoles("ADMIN", "LOAN_OFFICER"), BorrowerController.updateBorrower)
+router.put("/:id", authenticateToken, authorizeRoles("ADMIN", "LOAN_OFFICER", "MANAGER"), BorrowerController.updateBorrower)
 
 /**
  * @swagger
@@ -309,7 +309,7 @@ router.delete("/:id", authenticateToken, authorizeRoles("ADMIN"), BorrowerContro
 router.post(
   "/:id/recalculate-score",
   authenticateToken,
-  authorizeRoles("ADMIN", "LOAN_OFFICER"),
+  authorizeRoles("ADMIN", "LOAN_OFFICER", "MANAGER"),
   BorrowerController.recalculateCreditScore,
 )
 

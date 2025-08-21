@@ -31,7 +31,7 @@ const router = Router()
  *         name: role
  *         schema:
  *           type: string
- *           enum: [USER, ADMIN, LOAN_OFFICER]
+ *           enum: [USER, ADMIN, LOAN_OFFICER, MANAGER]
  *       - in: query
  *         name: isActive
  *         schema:
@@ -113,7 +113,7 @@ router.get("/:id", authenticateToken, UserController.getUserById)
  *                 format: email
  *               role:
  *                 type: string
- *                 enum: [USER, ADMIN, LOAN_OFFICER]
+ *                 enum: [USER, ADMIN, LOAN_OFFICER, MANAGER]
  *               isActive:
  *                 type: boolean
  *     responses:

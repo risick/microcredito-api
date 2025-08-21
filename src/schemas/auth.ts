@@ -4,7 +4,7 @@ export const registerSchema = z.object({
   email: z.string().email("Email inválido"),
   password: z.string().min(6, "Senha deve ter pelo menos 6 caracteres"),
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
-  role: z.enum(["USER", "ADMIN", "LOAN_OFFICER"]).optional().default("USER"),
+  role: z.enum(["USER", "ADMIN", "LOAN_OFFICER", "MANAGER"]).optional().default("USER"),
 })
 
 export const loginSchema = z.object({
@@ -15,7 +15,7 @@ export const loginSchema = z.object({
 export const updateUserSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres").optional(),
   email: z.string().email("Email inválido").optional(),
-  role: z.enum(["USER", "ADMIN", "LOAN_OFFICER"]).optional(),
+  role: z.enum(["USER", "ADMIN", "LOAN_OFFICER", "MANAGER"]).optional(),
   isActive: z.boolean().optional(),
 })
 

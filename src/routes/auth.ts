@@ -31,7 +31,7 @@ const router = Router()
  *                 type: string
  *               role:
  *                 type: string
- *                 enum: [USER, ADMIN, LOAN_OFFICER]
+ *                 enum: [USER, ADMIN, LOAN_OFFICER, MANAGER]
  *                 default: USER
  *     responses:
  *       201:

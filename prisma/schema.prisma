@@ -96,6 +96,7 @@ enum UserRole {
   USER
   ADMIN
   LOAN_OFFICER
+  MANAGER
 }
 
 enum LoanStatus {

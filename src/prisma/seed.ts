@@ -16,7 +16,7 @@ async function main() {
   const adminPassword = await bcrypt.hash('admin123', 10);
   const admin = await prisma.user.create({
     data: {
-      email: 'admin@example.com',
+      email: 'gildo@gmail.com',
       password: adminPassword,
       name: 'Administrador',
       role: UserRole.ADMIN
@@ -24,10 +24,10 @@ async function main() {
   });
 
   // Criar Loan Officer
-  const officerPassword = await bcrypt.hash('officer123', 10);
+  const officerPassword = await bcrypt.hash('agente123', 10);
   const loanOfficer = await prisma.user.create({
     data: {
-      email: 'officer@example.com',
+      email: 'agente@gmail.com',
       password: officerPassword,
       name: 'João Oficial',
       role: UserRole.LOAN_OFFICER
@@ -35,13 +35,13 @@ async function main() {
   });
 
   // Criar Borrower + User
-  const borrowerPassword = await bcrypt.hash('borrower123', 10);
+  const borrowerPassword = await bcrypt.hash('gestor123', 10);
   const borrowerUser = await prisma.user.create({
     data: {
-      email: 'borrower@example.com',
+      email: 'gestor@gmail.com',
       password: borrowerPassword,
       name: 'Maria Cliente',
-      role: UserRole.USER,
+      role: UserRole.MANAGER,
       borrower: {
         create: {
           bi: '1234567890',
