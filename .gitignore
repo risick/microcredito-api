@@ -154,4 +154,3 @@ node_modules/
 .vscode-test
 
 # Prisma
-prisma/migrations/
